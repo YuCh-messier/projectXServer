@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class="container">
+    <input v-model="text1" @input="doit1" style="border: 1px solid pink;">{{text2}}
+    <runoob @doit2="text2=$event" xxx="zlaa"></runoob>
+    <div @click="text2=$event">33</div>
+    </div>
+
+    <script>
+        var app = Vue.createApp({
+            data() {
+                return {
+                    text1:'111',
+                    text2:'222'
+                }
+            },
+            methods: {
+                doit1(){
+                    console.log($event)
+                }
+            }
+        })
+        app.component('runoob', {
+            data(){
+            return{
+                
+            }
+        },
+            methods:{
+        },
+            props:['xxx'],
+            template: `<div @click="$emit('doit2',1)">{{text1}}</div>`
+        })
+        const vm = app.mount('.container')
+    </script>
+</body>
+
+</html>
