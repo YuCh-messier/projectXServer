@@ -470,11 +470,13 @@ router.get('/user/getUserInfo',(req,res,next)=>{
         url:'http://localhost:3000/pages/speRecruit.html?affairId=1&type=recruit',tap:'网页'
     }
 ]
+var standardInfo={headImg:'http://124.223.155.169/testpic/head.jpg',backImg:'http://124.223.155.169/testpic/pic2.jpg',name:'张蠡奥',school:'中南财经政法大学',department:'经济学'}
   res.send({
     userInfo:userInfo,
     userResume:userResume,
     userMessages:userMessages,
-    collects:collects
+    collects:collects,
+    standardInfo:standardInfo
   })
 })
 
