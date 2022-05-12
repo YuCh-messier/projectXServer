@@ -3,11 +3,18 @@ var router = express.Router();
 
 /* GET home page. */
 
-//检测用户登录信息，返回基本内容
+//登录，成功后设置cookie
+router.post('/user/login', (req, res, next)=>{
+  res.cookie('telephone','13272732651',{maxAge:24*60*60*1000*7})
+  res.cookie('userToken','ASFDASCC',{maxAge:24*60*60*1000*7})
+  res.send('success')
+})
+
+//检测用户登录信息，返回是否正确
 router.post('/check/checkUser', function(req, res, next) {
   console.log(req.body)
   if(true){
-    res.send({headImg:'http://124.223.155.169/testpic/head.jpg',name:'张蠡奥',statu:true})
+    res.send({statu:true})
   }
   else{
     res.send({statu:false})
@@ -470,14 +477,19 @@ router.get('/user/getUserInfo',(req,res,next)=>{
         url:'http://localhost:3000/pages/speRecruit.html?affairId=1&type=recruit',tap:'网页'
     }
 ]
-var standardInfo={headImg:'http://124.223.155.169/testpic/head.jpg',backImg:'http://124.223.155.169/testpic/pic2.jpg',name:'张蠡奥',school:'中南财经政法大学',department:'经济学'}
+
   res.send({
     userInfo:userInfo,
     userResume:userResume,
     userMessages:userMessages,
-    collects:collects,
-    standardInfo:standardInfo
+    collects:collects
   })
+})
+
+router.post('/user/setStandardInfo',(req,res,next)=>{
+  console.log(req.body)
+  var standardInfo={headImg:'http://124.223.155.169/testpic/head.jpg',backImg:'http://124.223.155.169/testpic/pic2.jpg',name:'张蠡奥',school:'中南财经政法大学',department:'经济学'}
+  res.send(standardInfo)
 })
 
 //用户上传个人信息

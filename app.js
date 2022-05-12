@@ -20,6 +20,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('*',(req,res,next)=>{
   res.header('Access-Control-Allow-Origin', req.headers.origin || '*')
+  res.header('Access-Control-Allow-Credentials', 'true')
+  res.header('SameSite', 'none')
+  next()
+})
+app.use('/',(req,res,next)=>{
+  console.log('cookies',req.cookies)
   next()
 })
 app.use('/', indexRouter);

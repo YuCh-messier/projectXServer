@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+    <div class ="container">
+        <button onclick="doit()">click</button>
+    </div>
+
+    <script>
+        console.log(document.cookie)
+        function doit(){
+            $.ajax({
+                url: "http://127.0.0.1:3001/try",
+                type: "get",
+                crossDomain:true,
+                xhrFields: {
+                    withCredentials: true //允许跨域带Cookie
+                },
+                success: function(result){
+                    console.log(result)
+                }
+                });
+                // $.get(
+                //     "http://127.0.0.1:3001/try",{},
+                //     (data)=>{
+                //         console.log(data)
+                //     }
+                // )
+        }
+        var app = Vue.createApp({
+            data() {
+                return {
+                }
+            },
+            methods: {
+            }
+        })
+        app.component('runoob', {
+            data(){
+            return{
+            }
+        },
+            methods:{
+        },
+            props:[],
+            template: '<h1>自定义组件!</h1>'
+        })
+        const vm = app.mount('.container')
+    </script>
+</body>
+
+</html>
