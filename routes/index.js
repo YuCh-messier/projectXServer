@@ -191,7 +191,7 @@ var companyInfo={
     `,
     companyGraph:'http://124.223.155.169/testpic/pic4.webp',
 }
-var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:'(122.5,116,3)'}
+var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:[114.392191,30.480725]}
   res.send({
     headerInfo:headerInfo,
     speRecruitInfo:speRecruitInfo,
@@ -239,7 +239,7 @@ var companyInfo={
     `,
     companyGraph:'http://124.223.155.169/testpic/pic4.webp',
 }
-var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:'(122.5,116,3)'}
+var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:[114.392191,30.480725]}
   res.send({
     headerInfo:headerInfo,
     speRecruitInfo:speRecruitInfo,
@@ -332,20 +332,22 @@ var companyInfo={
 var userInfo=[
   {title:'用户',content:'张蠡奥'},
   {title:'性别',content:'男'},
-  {title:'年龄',content:'21'},
+  {title:'生日',content:'2001-8-2'},
   {title:'电话号码',content:'13272732651'},
   {title:'邮箱地址',content:'1181119044@qq.com'},
   {title:'学校',content:'中南财经政法大学'},
   {title:'专业',content:'经济学'}
 ]
 var userResume={
-  overView:`我是一个优秀的大学生`,
+  overView:`我是一个优秀的大学生
+  是的啊啊啊啊`,
   educateView:[
     {
       '学校':'中南财经政法大学',
       '学位':'学士',
       '时间':'2019-2023',
-      '经历简介':`我在学校干了很多事情`
+      '经历简介':`我在学校干了很多事情
+      是的啊啊啊啊啊`
     },{
       '学校':'中南财经政法大学',
       '学位':'学士',
@@ -376,7 +378,7 @@ var userResume={
   ]
 }
   var recruitStatu=['2022/05/07/10:59','待浏览','待反馈']
-  var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:'(122.5,116,3)'}
+  var mapInfo={address:'武汉市光谷软件园XX大厦',coordinate:[114.392191,30.480725]}
   res.send({
     headerInfo:headerInfo,
     speRecruitInfo:speRecruitInfo,
@@ -398,20 +400,34 @@ router.get('/user/getUserInfo',(req,res,next)=>{
   var userInfo=[
     {title:'用户',content:'张蠡奥'},
     {title:'性别',content:'男'},
-    {title:'年龄',content:'21'},
+    {title:'生日',content:'2001-8-2'},
     {title:'电话号码',content:'13272732651'},
     {title:'邮箱地址',content:'1181119044@qq.com'},
     {title:'学校',content:'中南财经政法大学'},
     {title:'专业',content:'经济学'}
   ]
+  var userPosition={
+    value1:'产品经理|前端工程师',
+    value2:'互联网|金融',
+    value3:'武汉|上海'
+  }
+  var userTime={
+    value1:'3个月内',
+    value2:'3-6个月',
+    value3:'5天'
+  }
   var userResume={
-    overView:`我是一个优秀的大学生`,
+    overView:`我是一个优秀的大学生
+    是的啊啊啊啊啊啊`,
+    awards:`各种比赛`,
+    skills:`编程，数据分析`,
     educateView:[
       {
         '学校':'中南财经政法大学',
         '学位':'学士',
         '时间':'2019-2023',
-        '经历简介':`我在学校干了很多事情`
+        '经历简介':`我在学校干了很多事情
+        是的啊啊啊啊啊啊`
       },{
         '学校':'中南财经政法大学',
         '学位':'学士',
@@ -433,12 +449,7 @@ router.get('/user/getUserInfo',(req,res,next)=>{
       }
     ],
     projectView:[
-      {
-        '项目':'网站开发',
-        '角色':'架构师|产品经理',
-       '时间':'2022-至今',
-       '经历简介':'我做了很多事情'
-      }
+
     ]
   }
   var userMessages=[
@@ -482,7 +493,8 @@ router.get('/user/getUserInfo',(req,res,next)=>{
     userInfo:userInfo,
     userResume:userResume,
     userMessages:userMessages,
-    collects:collects
+    collects:collects,
+    userAno:{userTime:userTime,userPosition:userPosition}
   })
 })
 
@@ -514,5 +526,10 @@ router.post('/collect/setCollect',(req,res,next)=>{
 router.post('/collect/checkCollect',(req,res,next)=>{
   console.log(req.body)
   res.send('fail')
+})
+
+router.post('/user/setAno',(req,res,next)=>{
+  console.log(req.body)
+  res.send('success')
 })
 module.exports = router;
