@@ -83,7 +83,7 @@ router.get('/recruits/searchRecruits', function(req, res, next) {
 });
 
 //响应内推信息页面搜索的招聘内容
-router.get('/recruits/searchRecommends', function(req, res, next) {
+router.get('/recommends/searchRecommends', function(req, res, next) {
   console.log(req.query)
   res.send([
       {
@@ -154,7 +154,7 @@ router.get('/recommends/allRecommends',(req,res,next)=>{
 })
 
 //通过id响应具体内推信息
-router.get('/recruits/speRecommend',(req,res,next)=>{
+router.get('/recommends/speRecommend',(req,res,next)=>{
   console.log(req.query)
   var headerInfo={
     affairId:1,
@@ -390,7 +390,7 @@ var userResume={
   })
 })
 
-router.post('/myrecruits/setRecruit',(req,res,next)=>{
+router.post('/myRecruits/setRecruit',(req,res,next)=>{
   console.log(req.body)
   res.send('success')
 })
