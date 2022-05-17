@@ -330,7 +330,7 @@ var companyInfo={
     companyGraph:'http://124.223.155.169/testpic/pic4.webp',
 }
 var userInfo=[
-  {title:'用户',content:'张蠡奥'},
+  {title:'姓名',content:'张蠡奥'},
   {title:'性别',content:'男'},
   {title:'生日',content:'2001-8-2'},
   {title:'电话号码',content:'13272732651'},
@@ -398,7 +398,7 @@ router.post('/myRecruits/setRecruit',(req,res,next)=>{
 //通过用户telephone和token返回用户信息
 router.get('/user/getUserInfo',(req,res,next)=>{
   var userInfo=[
-    {title:'用户',content:'张蠡奥'},
+    {title:'姓名',content:'张蠡奥'},
     {title:'性别',content:'男'},
     {title:'生日',content:'2001-8-2'},
     {title:'电话号码',content:'13272732651'},
@@ -531,5 +531,29 @@ router.post('/collect/checkCollect',(req,res,next)=>{
 router.post('/user/setAno',(req,res,next)=>{
   console.log(req.body)
   res.send('success')
+})
+
+router.post('/user/showFiles',(req,res,next)=>{
+  var files=['附件asdfqfw和1.txt','附件2.pdf','附件3.png','附件4.doc','附件5.jpg']
+  res.send(files)
+})
+
+router.post('/user/uploadFile',(req,res,next)=>{
+  console.log(req.body)
+  res.send('success')
+})
+
+router.post('/user/updateAvatar',(req,res,next)=>{
+  console.log(req.body)
+  res.send('success')
+})
+
+router.post('/user/showNewAvatar',(req,res,next)=>{
+  console.log(req.body)
+  res.send({headImg:`http://124.223.155.169/testpic/head.jpg`})
+})
+
+router.post('/',(req,res,next)=>{
+  console.log(req)
 })
 module.exports = router;
