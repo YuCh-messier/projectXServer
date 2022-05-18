@@ -553,7 +553,31 @@ router.post('/user/showNewAvatar',(req,res,next)=>{
   res.send({headImg:`http://124.223.155.169/testpic/head.jpg`})
 })
 
+router.post('/check/sendTelephone',(req,res,next)=>{
+  console.log(req.body)
+  res.send({telephoneToken:'55555'})
+})
+
+router.post('/check/checkTelephone',(req,res,next)=>{
+  console.log(req.body)
+  res.send({statu:true})
+})
+
+router.post('/user/register',(req,res,next)=>{
+  console.log(req.body)
+  res.send({statu:true})
+})
+
+router.post('/user/resetPwd',(req,res,next)=>{
+  console.log(req.body)
+  res.send({statu:true})
+})
+
 router.post('/',(req,res,next)=>{
-  console.log(req)
+  console.log(req.body)
+})
+
+router.get('/',(req,res,next)=>{
+  console.log(req.query)
 })
 module.exports = router;
