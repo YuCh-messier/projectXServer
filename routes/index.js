@@ -4,11 +4,11 @@ var router = express.Router();
 /* GET home page. */
 
 //登录，成功后设置cookie
-router.post('/user/login', (req, res, next)=>{
-  res.cookie('telephone','13272732651',{maxAge:24*60*60*1000*7})
-  res.cookie('userToken','ASFDASCC',{maxAge:24*60*60*1000*7})
-  res.send('success')
-})
+// router.post('/user/login', (req, res, next)=>{
+//   res.cookie('telephone','13272732651',{maxAge:24*60*60*1000*7})
+//   res.cookie('userToken','ASFDASCC',{maxAge:24*60*60*1000*7})
+//   res.send('success')
+// })
 
 //检测用户登录信息，返回是否正确
 router.post('/check/checkUser', function(req, res, next) {
