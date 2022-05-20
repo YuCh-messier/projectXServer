@@ -36,31 +36,23 @@ router.post('/check/checkSpecialAccount', function(req, res, next) {
 //响应招聘信息页面所有招聘内容
 router.get('/recruits/allRecruits', function(req, res, next) {
   console.log(req.query)
-  res.send([
-      {
-      affairId:1,
-      title:'飞书前端实习生招聘',
-      taps:'互联网|前端|实习',
-      companyTaps:'互联网|前端|实习',
-      companyName:'字节跳动',
-      address:'光谷软件园',
-      graph:'http://124.223.155.169/testpic/pic4.webp',
-      workDays:'4天',
-      salary:'400-500',
-      url:'#'
-  },{
-      affairId:2,
-      title:'飞书2前端实习生招聘',
-      taps:'互联网|前端|实习',
-      companyTaps:'互联网|前端|实习',
-      companyName:'字节跳动',
-      address:'光谷软件园',
-      graph:'http://124.223.155.169/testpic/pic4.webp',
-      workDays:'4天',
-      salary:'400-500',
-      url:'#'
-  }
-  ])
+  var son={
+    affairId:1,
+    title:'飞书前端实习生招聘',
+    taps:'互联网|前端|实习',
+    companyTaps:'互联网|前端|实习',
+    companyName:'字节跳动',
+    address:'光谷软件园',
+    graph:'http://124.223.155.169/testpic/pic4.webp',
+    workDays:'4天',
+    salary:'400-500',
+    url:'#'
+}
+var res1=[]
+for(let i=0;i<10;i++){
+  res1.push(son)
+}
+  res.send(res1)
 });
 
 //响应招聘信息页面搜索的招聘内容
